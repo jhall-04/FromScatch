@@ -7,10 +7,10 @@ A systematic, from-scratch implementation of foundational and modern machine lea
 ## 1. Linear Regression
 
 **Paper:**  
-“The Method of Least Squares” – Carl Friedrich Gauss (1809)
+https://www.geeksforgeeks.org/machine-learning/ml-linear-regression/
 
 **Dataset:**  
-Boston Housing (or synthetic regression dataset)
+Boston Housing
 
 **Focus:**
 
