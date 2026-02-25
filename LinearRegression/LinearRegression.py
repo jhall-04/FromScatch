@@ -45,3 +45,9 @@ class LinearRegression:
         intercept = [sum((-2 * (y_true[i] - y_pred[i])) for i in range(n)) / n]
         gradient = np.array(intercept + [sum(-2 * X[i, j] * (y_true[i] - y_pred[i]) for i in range(n))/n for j in range(m)])
         return gradient
+    
+    def score(self, y_true, y_pred):
+        ss_res = sum((y_true[i] - y_pred[i]) ** 2 for i in range(len(y_true)))
+        ss_tot = sum((y_true[i] - np.mean(y_true)) ** 2 for i in range(len(y_true)))
+        r2_score = 1 - (ss_res / ss_tot)
+        return r2_score
