@@ -17,3 +17,10 @@ Boston Housing
 - Normal Equation  
 - Gradient Descent  
 - L2 Regularization
+
+## 2. Logistic Regression
+
+**Paper:**
+https://www.geeksforgeeks.org/machine-learning/understanding-logistic-regression/
+
+**Dataset**
