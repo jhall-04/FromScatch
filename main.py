@@ -2,6 +2,7 @@ from LinearRegression.LinearRegression import LinearRegression
 from LogisticRegression.LogisticRegression import LogisticRegression
 import pandas as pd
 import numpy as np
+import pickle
 
 def linear_regression_example():
     lr_model = LinearRegression()
@@ -37,12 +38,21 @@ def logistic_regression_example():
     print("Accuracy:", accuracy)
 
 def unpickle(file):
-    import pickle
     with open(file, 'rb') as fo:
         dict = pickle.load(fo, encoding='bytes')
     return dict
+
 def mlp_example():
-    pass
+    train = unpickle("MLP/data_batch_1")
+    print(train.keys())
+    test = unpickle("MLP/test_batch")
+    x_train = train[b'data']
+    y_train = train[b'labels']
+    x_test = test[b'data']
+    y_test = test[b'labels']
+    print(f"x_train shape: {x_train.shape}, y_train shape: {len(y_train)}")
+    print(f"x_test shape: {x_test.shape}, y_test shape: {len(y_test)}")
+
 def main():
     # linear_regression_example()
     # logistic_regression_example()

@@ -13,3 +13,4 @@ wheels/
 *.csv
 *.data
 *.names
+*batch*
