@@ -1,5 +1,6 @@
 from LinearRegression.LinearRegression import LinearRegression
 from LogisticRegression.LogisticRegression import LogisticRegression
+import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import pickle
@@ -52,6 +53,8 @@ def mlp_example():
     y_test = test[b'labels']
     print(f"x_train shape: {x_train.shape}, y_train shape: {len(y_train)}")
     print(f"x_test shape: {x_test.shape}, y_test shape: {len(y_test)}")
+    plt.imshow(x_train[0].reshape(32, 32, 3))
+    plt.show()
 
 def main():
     # linear_regression_example()
