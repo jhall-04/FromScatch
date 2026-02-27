@@ -24,3 +24,21 @@ Boston Housing
 https://www.geeksforgeeks.org/machine-learning/understanding-logistic-regression/
 
 **Dataset**
+Breast Cancer Wisconsin
+
+**Focus:**
+
+- Binary Classification
+
+## 3. Multi-Layer Perceptron
+
+**Paper:**
+Rumelhart, Hinton, Williams (1986) — Learning representations by back-propagating errors
+
+**Dataset:**
+CIFAR-10
+
+**Focus:**
+
+- Back Propagation
+- ReLU vs Sigmoid
