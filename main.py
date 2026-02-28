@@ -1,5 +1,7 @@
 from LinearRegression.LinearRegression import LinearRegression
 from LogisticRegression.LogisticRegression import LogisticRegression
+from MLP.MLP import MLP
+
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -43,6 +45,13 @@ def unpickle(file):
         dict = pickle.load(fo, encoding='bytes')
     return dict
 
+def convert_to_greyscale(X):
+    n = X.shape[0]
+    X_grey = np.zeros((n, 32*32))
+    for i in range(n):
+        X_grey[i] = np.dot(X[i].reshape(3, 32, 32).transpose(1, 2, 0)[...,:3], [0.213, 0.715, 0.072]).flatten()
+    return X_grey / 255.0
+
 def mlp_example():
     train = unpickle("MLP/data_batch_1")
     print(train.keys())
@@ -53,8 +62,16 @@ def mlp_example():
     y_test = test[b'labels']
     print(f"x_train shape: {x_train.shape}, y_train shape: {len(y_train)}")
     print(f"x_test shape: {x_test.shape}, y_test shape: {len(y_test)}")
-    plt.imshow(x_train[0].reshape(32, 32, 3))
-    plt.show()
+    x_train = convert_to_greyscale(x_train)
+    x_test = convert_to_greyscale(x_test)
+    fig, axs = plt.subplots(2, 4, figsize=(15, 10))
+    for i in range(8):
+        img = x_train[i].reshape(32, 32)
+        axs[i // 4, i % 4].imshow(img, cmap='gray')
+        axs[i // 4, i % 4].set_title(f"Label: {y_train[i]}")
+        axs[i // 4, i % 4].axis('off')
+    plt.savefig("mlp_example.png")
+    
 
 def main():
     # linear_regression_example()

@@ -14,3 +14,10 @@ wheels/
 *.data
 *.names
 *batch*
+
+# Images
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
